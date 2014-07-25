@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>test</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    </head>
+    <body>
+        <button>Change colors</button>
+        <span>span</span> 
+        <div>div1</div> 
+        <div>div2</div>
+
+        <div>div3</div> 
+        <div>div4</div>
+        <div id="stop">Stop here</div> 
+        <div>div5</div>
+
+        <div>div6</div>
+        <div>div7</div>
+
+        
+        <script>
+            $("button").click(function() {
+                $("div").each(function(i) {
+                    var $div = $(this);
+                    $div.css({"background":"red","margin":"0 0 10px 0"});
+                    if($div.attr("id")=="stop"){
+                        console.log(i);
+                        return false;
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
