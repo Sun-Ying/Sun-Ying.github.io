@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>分享按钮弹出</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <style>
+            *{
+                margin:0;
+                padding:0;
+            }
+            #box{
+                margin-top: 30px;
+                position: absolute;
+                top:0;
+                left:-100px;
+                width:100px;
+                height:200px;
+                background: #f00;
+
+            }
+            #share{
+                width:20px;
+                height:60px;
+                background: green;
+                position: absolute;
+                top:70px;
+                right:-20px;
+            }
+        </style>
+        <script>
+            window.onload = function() {
+                var oBox = document.getElementById("box");
+                var timer = "";
+                oBox.onmouseover = function() {
+                    Move(0);
+                };
+                oBox.onmouseout = function() {
+                    Move(-100);
+                };
+                function Move(itarget) {
+                    clearInterval(timer);
+                    timer = setInterval(function() {
+                        var speed = 0;
+                        if (itarget > oBox.offsetLeft) {
+                            speed = 10;
+                        } else {
+                            speed = -10;
+                        }
+                        if (oBox.offsetLeft == itarget) {
+                            clearInterval(timer);
+                        } else {
+                            oBox.style.left = oBox.offsetLeft + speed + "px";
+                        }
+                    }, 30);
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <div id="box">
+            <div id="share">分享到</div>
+        </div>
+    </body>
+</html>

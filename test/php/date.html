@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>日历</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <style>
+            ul{
+                width:186px;
+                overflow: hidden;
+                padding:0;
+                margin:0;
+            }
+            li{
+                float:left;
+                width:60px;
+                height:60px;
+                line-height:30px;
+                margin:0 2px 2px 0;
+                text-align: center;
+                background: #000;
+                color:#fff;
+                list-style: none;
+                cursor: pointer;
+            }
+            ul h2,ul p{
+                margin:0;
+            }
+            .con{
+                line-height:30px;
+            }
+            .active{
+                background: #666;
+            }
+        </style>
+        <script>
+            window.onload = function() {
+                var arr = [
+                    "1月活动内容",
+                    "2月活动内容",
+                    "3月活动内容",
+                    "4月活动内容",
+                    "5月活动内容",
+                    "6月活动内容",
+                    "7月活动内容",
+                    "8月活动内容",
+                    "9月活动内容",
+                    "10月活动内容",
+                    "11月活动内容",
+                    "12月活动内容"
+                ];
+                var odiv = document.getElementById("div1");
+                var ali = odiv.getElementsByTagName("li");
+                var ocon = odiv.getElementsByTagName("div")[0];
+                for (var i = 0; i < ali.length; i++) {
+                    ali[i].index = i;
+                    ali[i].onmouseover = function() {
+                        for (var i = 0; i < ali.length; i++) {
+                            ali[i].className = "";
+                        }
+                        this.className = "active";
+                        ocon.innerHTML = "<h2>" + (this.index + 1) + "月</h2><p>" + arr[this.index] + "</p>";
+                    };
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <div id="div1">
+            <ul>
+                <li class="active"><h2>1</h2><p>JAN</p></li>
+                <li><h2>2</h2><p>FER</p></li>
+                <li><h2>3</h2><p>MAR</p></li>
+                <li><h2>4</h2><p>APR</p></li>
+                <li><h2>5</h2><p>MAY</p></li>
+                <li><h2>6</h2><p>JUN</p></li>
+                <li><h2>7</h2><p>JUL</p></li>
+                <li><h2>8</h2><p>AUG</p></li>
+                <li><h2>9</h2><p>SEP</p></li>
+                <li><h2>10</h2><p>OCT</p></li>
+                <li><h2>11</h2><p>NOV</p></li>
+                <li><h2>12</h2><p>DEC</p></li>
+            </ul>
+            <div class="con">
+                <h2>1月</h2>
+                <p>1月活动内容</p>
+            </div>
+        </div>
+    </body>
+</html>

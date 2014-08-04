@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>定时器</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <style>
+            body{
+                padding-top: 50px;
+                text-align: center;
+                color:#000;
+            }
+            .title{
+                line-height: 50px;
+                font-size: 30px;
+            }
+            .data,.time{
+                font-size: 20px;
+                line-height: 30px;
+            }
+        </style>
+        <script>
+            window.onload = function() {
+                var oBox1 = document.getElementById("box1");
+                var oSpan = oBox1.getElementsByTagName("span");
+                var oSecond = oSpan[2];
+                var oMin = oSpan[1];
+                var ohour = oSpan[0];
+//                alert(parseInt(oSecond.innerHTML));
+//                alert(oMin.innerHTML);
+//                alert(ohour.innerHTML);
+                setInterval(function() {
+                    if (parseInt(oSecond.innerHTML) < 9) {
+                        oSecond.innerHTML = "0" + (parseInt(oSecond.innerHTML) + 1);
+                    }
+                    else if (parseInt(oSecond.innerHTML) > 58) {
+                        oSecond.innerHTML = "00";
+                        oMin.innerHTML = (parseInt(oMin.innerHTML) + 1);
+                    }
+                    else {
+                        oSecond.innerHTML = (parseInt(oSecond.innerHTML) + 1);
+                    }
+                }, 1000);
+            };
+        </script>
+    </head>
+    <body>
+        <div class="box" id="box1">
+            <h1 class="title">超酷时钟</h1>
+            <p class="data">2012-08-12</p>
+            <div class="time">
+                <span>01</span>:
+                <span>12</span>:
+                <span>05</span>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+

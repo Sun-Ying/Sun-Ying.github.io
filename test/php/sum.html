@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>求和</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script>
+            window.onload = function() {
+                var otxt1 = document.getElementById("txt1");
+                var otxt2 = document.getElementById("txt2");
+                var obtn = document.getElementById("btn1");
+                obtn.onclick = function() {
+                    var tv1=parseInt(otxt1.value);
+                    var tv2=parseInt(otxt2.value);
+                    if(isNaN(tv1) || isNaN(tv2)){
+                        alert("输错");                        
+                    }                    
+                };
+            };
+        </script>
+    </head>
+    <body>
+        <input id="txt1" type="text"/>
+        <input id="txt2" type="text"/>
+        <input id="btn1" type="button" value="求和"/>
+    </body>
+</html>

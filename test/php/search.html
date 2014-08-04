@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>搜索</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <style>
+            body{text-align: center;}
+            table tr{text-align: center;}
+            #add{margin:10px;}
+        </style>
+        <script>
+            window.onload = function() {
+                var oTable = document.getElementById("tb");
+                var oTxt = document.getElementById("txt");
+                var oBtn = document.getElementById("btn");
+                var oTd = oTable.tBodies[0].rows;
+                oBtn.onclick = function() {
+                    var aArr = oTxt.value.split(" ");
+                    for (var i = 0; i < oTd.length; i++) {
+                        oTd[i].style.background = "";
+//                        var sTxt = oTxt.value.toLowerCase();
+                        for (var j = 0; j < aArr.length; j++) {
+                            var sTxt = aArr[j];
+                            var sTd = oTd[i].cells[1].innerHTML.toLowerCase();
+                            if (sTd.search(sTxt) != -1) {
+                                oTd[i].style.background = "#f00";
+                            }
+                        }
+                    }
+                };
+            };
+        </script>
+    </head>
+    <body>
+        <div id="add">
+            <input id="txt" type="text"/>
+            <input id="btn" type="button" value="搜索"/>
+        </div>
+        <table id="tb" border="1" width="500" align="center">
+            <thead>
+                <tr>
+                    <td>编号</td>
+                    <td>姓名</td>
+                    <td>年龄</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>张生</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>李四</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>王五</td>
+                    <td>65</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>孙一</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>dgRGSDRGg</td>
+                    <td>73</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

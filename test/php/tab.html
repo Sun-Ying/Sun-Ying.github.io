@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>选项卡</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+        <style>
+            #div1 div{
+                width:200px;
+                height:100px;
+                background:#ccc;
+                border:1px #000 solid;
+                display: none;
+            }
+            #div1 .active{
+                background: yellow;
+            }
+        </style>
+        <script>
+            window.onload = function() {
+                var odiv = document.getElementById("div1");
+                var abtn = odiv.getElementsByTagName("input");
+                var adiv = odiv.getElementsByTagName("div");
+                for (var i = 0; i < abtn.length; i++) {
+                    abtn[i].index = i;
+                    abtn[i].onmouseover = function() {
+                        for (var i = 0; i < abtn.length; i++) {
+                            abtn[i].className = "";
+                            adiv[i].style.display = "none";
+                        }
+                        this.className = "active";
+                        adiv[this.index].style.display = "block";
+                    };
+                };
+            };
+        </script>
+    </head>
+    <body>
+        <div id="div1">
+            <input class="active" type="button" value="111"/>
+            <input type="button" value="222"/>
+            <input type="button" value="333"/>
+            <input type="button" value="444"/>
+            <div style="display:block;">11111</div>
+            <div>22222</div>
+            <div>33333</div>
+            <div>44444</div>
+        </div>
+    </body>
+</html>

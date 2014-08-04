@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>DOM操作元素</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script>
+            window.onload = function() {
+                var oBtn = document.getElementById("btn1");
+                var oUl = document.getElementById("ul1");
+                var oTxt = document.getElementById("txt1");
+                oBtn.onclick = function() {
+                    var oli = document.createElement("li");//创建li节点
+                    var oA = document.createElement("a");
+                    var li = oUl.getElementsByTagName("li");
+                    if (li.length > 0) {
+                        oUl.insertBefore(oli, li[0]);
+                    }
+                    else {
+                        oUl.appendChild(oli); //创建的节点插入相应父节点里
+                    }
+                    oA.setAttribute("href", "javascript:");
+                    oA.innerHTML = "删除";
+                    oli.innerHTML = oTxt.value;
+                    oli.appendChild(oA);
+                    var a = oUl.getElementsByTagName("a");
+                    for (var i = 0; i < a.length; i++) {
+                        a[i].onclick = function() {
+                            oUl.removeChild(this.parentNode);
+                        };
+                    }
+                };
+            };
+        </script>
+    </head>
+    <body>
+        <input id="txt1" type="text"/>
+        <input id="btn1" type="button" value="创建li"/>
+        <ul id="ul1"></ul>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>通过className查找元素</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script>
+            window.onload = function() {
+                var arr = [];
+                function getClassName(obj, classname) {
+                    var o = obj.getElementsByTagName("*");
+                    for (var i = 0; i < o.length; i++) {
+                        if (o[i].className == classname) {
+                            arr.push(o[i]);
+                        }
+                    }
+                    return arr;
+                }
+                var oDiv = document.getElementById("div1");
+                var a = getClassName(oDiv, "box");
+                for (var i = 0; i < a.length; i++) {
+                    a[i].style.background = "red";
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <div id="div1">
+            <ul>
+                <li class="box">1</li>
+                <li>2</li>
+                <li class="box">3</li>
+                <li class="box">4</li>
+                <li>5</li>
+                <li>6</li>
+            </ul>
+        </div>
+    </body>
+</html>

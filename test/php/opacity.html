@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>图片淡入淡出</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <style>
+            #img img{
+                opacity: 0.3; 
+                border:none;
+                filter:alpha(opacity:30);
+            }
+        </style>
+        <script>
+            var timer = null;
+            var opacity = 30;//用变量存储透明度
+            var aImg = document.getElementsByTagName("img");
+            function opamove(aa, itarget) {
+                clearInterval(timer);
+                timer = setInterval(function() {
+                    var speed = 0;
+                    if (opacity > itarget) {
+                        speed = -2;
+                    } else {
+                        speed = 2;
+                    }
+                    if (opacity == itarget) {
+                        clearInterval(timer);
+                    } else {
+                        opacity += speed;
+                        aa.style.filter = "alpha(opacity:" + opacity + ")";
+                        aa.style.opacity = opacity / 100;
+                    }
+                }, 30);
+            }
+            window.onload = function() {
+                for (var i = 0; i < aImg.length; i++) {
+                    aImg[i].onmouseover = function() {
+                        opamove(this, 100);
+                    };
+                    aImg[i].onmouseout = function() {
+                        opamove(this, 30);
+                    };
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <div id="img">
+            <a href=""><img src="images/1.jpg"/></a>
+            <a href=""><img src="images/2.jpg"/></a>
+            <a href=""><img src="images/3.jpg"/></a>
+        </div>
+    </body>
+</html>
